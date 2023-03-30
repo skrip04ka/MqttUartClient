@@ -14,9 +14,10 @@ import static org.example.Config.PASSWORD;
 /** Рабочий класс для master */
 public class MasterMqtt {
     public static void main(String[] args) {
-        MqttMaster master = new MqttMaster(Thread.currentThread().getName(),
-                SERVER_URI, TOPIC_NAME);
+        MqttMaster master = new MqttMaster("master_id", SERVER_URI);
         master.connect(USERNAME, PASSWORD);
+
+
         UartHelper uartHelper = new UartHelper(COM_PORT);
 
         UartApp app = new Master();
@@ -34,7 +35,9 @@ public class MasterMqtt {
         // main cycle
         while (true) {
             app.action(data, uartHelper);
-            master.sendMessage(data);
+            master.sendMessage(data, TOPIC_NAME_S1);
+            master.sendMessage(data, TOPIC_NAME_S2);
+            master.sendMessage(data, TOPIC_NAME_S3);
         }
 
 

@@ -1,5 +1,6 @@
 package org.example.app;
 
+import org.example.app.master.Master;
 import org.example.app.slave1.SlaveOne;
 import org.example.dto.MqttData;
 import org.example.dto.SlaveDtoOne;
@@ -22,6 +23,7 @@ public class TestClass {
         mqttData.setSlaveDtoOne(slaveDtoOne);
 
         Scanner sc = new Scanner(System.in);
+//        app.action(mqttData, uartHelper);
 
         while (true) {
             slaveDtoOne.setAdc1(Integer.parseInt(sc.nextLine()));

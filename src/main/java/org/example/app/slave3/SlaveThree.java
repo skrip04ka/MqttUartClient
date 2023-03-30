@@ -11,10 +11,14 @@ public class SlaveThree implements UartApp {
 
     @Override
     public void action(MqttData mqttData, UartHelper uartHelper) {
-        SlaveDtoThree slaveDto = mqttData.getSlaveDtoThree(); // get data from master
+        appLogic(mqttData.getSlaveDtoThree()); // get data from master
+        uartHelper.transmitByte(data); // send data to mk
+    }
 
+    private void appLogic(SlaveDtoThree slaveDto) {
         // Your code
 
-        uartHelper.transmitByte(data); // send data to mk
+
+
     }
 }

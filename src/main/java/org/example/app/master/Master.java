@@ -13,8 +13,15 @@ public class Master implements UartApp {
 
             // Your code
 
-
+            System.out.println(data[0]);
 
         });
+    }
+
+    private void appLogic(int[] data) {
+        // Your code
+
+
+
     }
 }

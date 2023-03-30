@@ -12,14 +12,15 @@ import static org.example.Config.PASSWORD;
 public class SlaveMqtt {
 
     public static void main(String[] args) {
-        MqttSlave helper = new MqttSlave(Thread.currentThread().getName(),
-                SERVER_URI, TOPIC_NAME);
+        MqttSlave helper = new MqttSlave("slave_" + TOPIC_NAME_S1, SERVER_URI, TOPIC_NAME_S1);
         helper.connect(USERNAME, PASSWORD);
         UartHelper uartHelper = new UartHelper(COM_PORT);
 
         UartApp app = new SlaveOne(); // choice slave class
 
-        helper.addSubscriber(mqttData -> app.action(mqttData, uartHelper));
+        helper.addSubscriber(mqttData -> {
+            app.action(mqttData, uartHelper);
+        });
     }
 
 
