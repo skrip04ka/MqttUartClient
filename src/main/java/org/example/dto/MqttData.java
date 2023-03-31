@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class MqttData {
     private SlaveDtoOne slaveDtoOne;
-    private SlaveDtoTwo slaveDtoTwo;
+    private SlaveDtoTwo slaveDtoTwo = new SlaveDtoTwo();
     private SlaveDtoThree slaveDtoThree;
 }

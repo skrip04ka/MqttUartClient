@@ -8,10 +8,10 @@ import lombok.Setter;
 public class SlaveDtoTwo {
 
     public SlaveDtoTwo() {
-        this.adc3 = 0;
-        this.adc4 = 0;
+        this.adc3 = 1;
+        this.adc4 = 1;
     }
 
-    private double adc3;
-    private double adc4;
+    private int adc3;
+    private int adc4;
 }

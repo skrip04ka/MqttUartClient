@@ -32,9 +32,9 @@ public class MasterMqtt {
         data.setSlaveDtoTwo(s2);
         data.setSlaveDtoThree(s3);
 
+        app.action(data, uartHelper);
         // main cycle
         while (true) {
-            app.action(data, uartHelper);
             master.sendMessage(data, TOPIC_NAME_S1);
             master.sendMessage(data, TOPIC_NAME_S2);
             master.sendMessage(data, TOPIC_NAME_S3);
